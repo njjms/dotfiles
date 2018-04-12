@@ -7,6 +7,7 @@ syntax on
 :set t_Co=256
 :set background=dark
 :colorscheme industry
+:set number relativenumber
 
 set tabstop=4
 
@@ -42,12 +43,20 @@ inoremap <s-tab> <c-n>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Left> :echo "no!" <cr>
-map <Right> :echo "no!"<cr>
-map <Up> :echo "no!"<cr>
-map <Down> :echo "no!"<cr>
+:map <Left> :echo "no!" <cr>
+:map <Right> :echo "no!"<cr>
+:map <Up> :echo "no!"<cr>
+:map <Down> :echo "no!"<cr>
 
 :imap jj <Esc>l
-:vmap <Tab> <Esc>
 :map - dd
-:imap <c-l> <space><-<space>
+:imap <c-a> <space><-<space>
+:imap <c-p> <space>%>%<space>
+:imap ( ()<Left>
+:imap [ []<Left>
+:imap { {}<Left>
+:imap " ""<Left>
+:imap ' ''<Left>
+
+:vmap <Tab> <Esc>
+
