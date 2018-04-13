@@ -1,19 +1,12 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Basic editing setup
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-syntax on
-
-:set t_Co=256
-:set background=dark
-:colorscheme industry
 :set number relativenumber
 
 set tabstop=4
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 augroup vimrcEx
@@ -37,6 +30,7 @@ function! InsertTabWrapper()
 		return "\<c-p>"
 	endif
 endfunction
+
 inoremap <tab> <c-r>=InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
@@ -52,11 +46,39 @@ inoremap <s-tab> <c-n>
 :map - dd
 :imap <c-a> <space><-<space>
 :imap <c-p> <space>%>%<space>
-:imap ( ()<Left>
-:imap [ []<Left>
-:imap { {}<Left>
-:imap " ""<Left>
-:imap ' ''<Left>
+:imap uu <CR>
+
+:inoremap ( ()<Left>
+:inoremap [ []<Left>
+:inoremap { {}<Left>
+:inoremap " ""<Left>
+:inoremap ' ''<Left>
 
 :vmap <Tab> <Esc>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+call plug#begin()
+
+	Plug 'scrooloose/nerdcommenter'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:airline_theme='luna'
+
+syntax enable
+
+set background=dark
+let g:solarized_termtrans = 1
+let g:solarized_termcolors = 256
+colorscheme solarized
+
+hi LineNr ctermfg=94 ctermbg=17
