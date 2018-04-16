@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/Nick'
+let g:netrw_dirhist_2='/Users/Nick/pline'
+let g:netrw_dirhist_3='/Users/Nick/.vim'
+let g:netrw_dirhist_4='/Users/Nick/Desktop/R/unonumeRo/.git'
