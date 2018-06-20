@@ -19,6 +19,7 @@ augroup vimrcEx
 		\ endif
 augroup END
 
+autocmd Filetype rmd map <F5> :!echo<space>"require(rmarkdown);<space>render('<c-r>%')"<space>\|<space>R<space>--vanilla<enter>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
@@ -59,7 +60,7 @@ inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 "inoremap <s-tab> <c-n>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mappings
+" Standard Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 :map <Left> :echo "no!" <cr>
@@ -78,14 +79,21 @@ inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 :inoremap " ""<Left>
 :inoremap ' ''<Left>
 
-:nnoremap <c-j> <c-w><c-j>
-:nnoremap <c-h> <c-w><c-h>
-:nnoremap <c-k> <c-w><c-k>
-:nnoremap <c-l> <c-w><c-l>
-
 :vmap <Tab> <Esc>
 
-:nnoremap <F5> :buffers<CR>:buffer<Space>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Split Navigation Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+:nnoremap <c-j> <c-w>j
+:nnoremap <c-h> <c-w>h
+:nnoremap <c-k> <c-w>k
+:nnoremap <c-l> <c-w>l
+
+:nnoremap <c-J> <c-w>J
+:nnoremap <c-H> <c-w>H
+:nnoremap <c-K> <c-w>K
+:nnoremap <c-L> <c-w>L
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -100,7 +108,9 @@ call plug#begin()
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'easymotion/vim-easymotion'
 	Plug 'nathanaelkane/vim-indent-guides'
-	Plug '/usr/local/opt/fzf'
+	Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --bin'}
+	Plug 'junegunn/fzf.vim'
+	Plug 'yuttie/comfortable-motion.vim'
 
 call plug#end()
 
@@ -124,4 +134,4 @@ colorscheme solarized
 
 hi LineNr ctermfg=208 ctermbg=24
 hi Comment ctermfg=94
-
+hi Visual ctermfg=208 ctermbg=24
