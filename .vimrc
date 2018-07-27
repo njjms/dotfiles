@@ -7,7 +7,6 @@ set tabstop=4
 
 set wildignore+=*/tmp*,*.so,*.swp,*.zip
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -59,6 +58,35 @@ inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
 "inoremap <tab> <c-r>
 "inoremap <s-tab> <c-n>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Indicate lines over 80 chars
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Highlight and blinking for search
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! HLNext(blinktime)
+	let [bufnum, lnum, col, off] = getpos('.')
+	let matchlen = strlen(matchstr(strpart(getline('.'),col-1),@/))
+	let target_pat = '\c\%#'.@/
+	let blinks = 2
+	for n in range(1, blinks)
+		let red = matchadd('WhiteOnRed', target_pat, 101)
+		redraw
+		exec 'sleep ' . float2nr(a:blinktime / (2*blinks) * 1000) . 'm'
+		call matchdelete(red)
+		redraw
+		exec 'sleep ' . float2nr(a:blinktime / (2*blinks) * 1000) . 'm'
+	endfor
+endfunction
+
+:nnoremap <silent>n n:call HLNext(0.2)<CR>
+:nnoremap <silent>N n:call HLNext(0.2)<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Standard Mappings
@@ -154,11 +182,4 @@ hi Visual ctermfg=208 ctermbg=24
 
 set listchars=tab:>~,nbsp:_,trail:.
 set list
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Indicate lines over 80 chars
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
 
