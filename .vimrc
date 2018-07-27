@@ -7,6 +7,7 @@ set tabstop=4
 
 set wildignore+=*/tmp*,*.so,*.swp,*.zip
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Autocommands
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,15 +64,23 @@ inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 " Standard Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-:map <Left> :echo "no!" <cr>
-:map <Right> :echo "no!"<cr>
-:map <Up> :echo "no!"<cr>
-:map <Down> :echo "no!"<cr>
+":map <Left> :echo "no!" <cr>
+":map <Right> :echo "no!"<cr>
+":map <Up> :echo "no!"<cr>
+":map <Down> :echo "no!"<cr>
 
 :imap jj <Esc>l
-:imap <c-a> <space><-<space>
-:imap <c-p> <space>%>%<space>
-:imap uu <CR>
+":imap <c-a> <space><-<space>
+":imap <c-p> <space>%>%<space>
+":imap uu <CR>
+
+:nnoremap ; :
+:nnoremap : ;
+:nnoremap ffz :FZF<CR>
+:nnoremap ffd :FZF<space>~/
+:nnoremap pwd :!pwd<CR>
+:nnoremap BB :Buffers<CR>
+":nnoremap ert :vs<bar>b
 
 :inoremap ( ()<Left>
 :inoremap [ []<Left>
@@ -85,15 +94,15 @@ inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 " Split Navigation Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-:nnoremap <c-j> <c-w>j
-:nnoremap <c-h> <c-w>h
-:nnoremap <c-k> <c-w>k
-:nnoremap <c-l> <c-w>l
+:nnoremap SS <c-w>k
+:nnoremap AA <c-w>h
+:nnoremap DD <c-w>j
+:nnoremap FF <c-w>l
 
-:nnoremap <c-J> <c-w>J
-:nnoremap <c-H> <c-w>H
-:nnoremap <c-K> <c-w>K
-:nnoremap <c-L> <c-w>L
+":nnoremap <c-J> <c-w>J
+:nnoremap <c-h> :bp<CR>
+":nnoremap <c-K> <c-w>K
+:nnoremap <c-l> :bn<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -111,6 +120,7 @@ call plug#begin()
 	Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --bin'}
 	Plug 'junegunn/fzf.vim'
 	Plug 'yuttie/comfortable-motion.vim'
+	Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -120,6 +130,8 @@ call plug#end()
 
 let g:airline_theme='luna'
 
+set nocompatible
+filetype plugin on
 syntax enable
 
 let g:indent_guides_guide_size=1
@@ -135,3 +147,18 @@ colorscheme solarized
 hi LineNr ctermfg=208 ctermbg=24
 hi Comment ctermfg=94
 hi Visual ctermfg=208 ctermbg=24
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Mange whitespace!
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set listchars=tab:>~,nbsp:_,trail:.
+set list
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Indicate lines over 80 chars
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
