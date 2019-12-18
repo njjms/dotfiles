@@ -1,7 +1,7 @@
-"  __   __   __     __    __     ______     ______    
-"  /\ \ / /  /\ \   /\ "-./  \   /\  == \   /\  ___\   
-"  \ \ \'/   \ \ \  \ \ \-./\ \  \ \  __<   \ \ \____  
-"   \ \__|    \ \_\  \ \_\ \ \_\  \ \_\ \_\  \ \_____\ 
+"  __   __   __     __    __     ______     ______   
+"  /\ \ / /  /\ \   /\ "-./  \   /\  == \   /\  ___\ 
+"  \ \ \'/   \ \ \  \ \ \-./\ \  \ \  __<   \ \ \___
+"   \ \__|    \ \_\  \ \_\ \ \_\  \ \_\ \_\  \ \_____\
 "    \/_/      \/_/   \/_/  \/_/   \/_/ /_/   \/_____/
 
 syntax enable
@@ -16,7 +16,7 @@ set wildmenu
 
 " Mappings
 
-nnoremap GO :Goyo<CR>
+nnoremap YO :Goyo<CR>
 nnoremap NO :Goyo!<CR>
 nnoremap % v%
 vnoremap <Tab> <Esc>
@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/goyo.vim'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'JuliaEditorSupport/julia-vim'
 
 call plug#end()
 
