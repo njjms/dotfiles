@@ -9,6 +9,7 @@ set relativenumber number
 set tabstop=4
 set shiftwidth=4
 set numberwidth=4
+set t_ut=""
 
 set nocompatible
 set path+=**
