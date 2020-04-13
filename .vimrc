@@ -58,20 +58,22 @@ let g:vimtex_view_method = 'zathura'
 augroup tex
 	autocmd!
 	autocmd FileType tex,md,Rmd inoremap ;; $$<Esc>i
-	autocmd FileType tex,md,Rmd inoremap ;M <CR>$$<CR><CR>$$<Esc>ki
+	autocmd FileType tex,md,Rmd inoremap ;M <CR><CR>$$<CR><CR>$$<Esc>ki
 	autocmd FileType tex,md,Rmd inoremap ~~ \sim<Space>
 
-	autocmd FileType tex,md,Rmd inoremap ;th \theta
-	autocmd FileType tex,md,Rmd inoremap ;m \mu
-	autocmd FileType tex,md,Rmd inoremap ;a \alpha
-	autocmd FileType tex,md,Rmd inoremap ;be \beta
-	autocmd FileType tex,md,Rmd inoremap ;s \sigma
-	autocmd FileType tex,md,Rmd inoremap ;ss \sigma^2
-	autocmd FileType tex,md,Rmd inoremap ;S \Sigma
-	autocmd FileType tex,md,Rmd inoremap ;la \lambda
-	autocmd FileType tex,md,Rmd inoremap ;L \Lambd
-	autocmd FileType tex,md,Rmd inoremap ;g \gamma
-	autocmd FileType tex,md,Rmd inoremap ;G \Gamma
+	autocmd FileType tex,md,Rmd inoremap ;th \theta<Space>
+	autocmd FileType tex,md,Rmd inoremap ;m \mu<Space>
+	autocmd FileType tex,md,Rmd inoremap ;a \alpha<Space>
+	autocmd FileType tex,md,Rmd inoremap ;be \beta<Space>
+	autocmd FileType tex,md,Rmd inoremap ;s \sigma<Space>
+	autocmd FileType tex,md,Rmd inoremap ;ss \sigma^2<Space>
+	autocmd FileType tex,md,Rmd inoremap ;S \Sigma<Space>
+	autocmd FileType tex,md,Rmd inoremap ;la \lambda<Space>
+	autocmd FileType tex,md,Rmd inoremap ;L \Lambd<Space>
+	autocmd FileType tex,md,Rmd inoremap ;g \gamma<Space>
+	autocmd FileType tex,md,Rmd inoremap ;G \Gamma<Space>
+	autocmd FileType tex,md,Rmd inoremap ;ph \phi<Space>
+	autocmd FileType tex,md,Rmd inoremap ;pi \pi<Space>
 
 	autocmd FileType tex,md,Rmd inoremap ;E E[]<Esc>i
 	autocmd FileType tex,md,Rmd inoremap ;c ^
@@ -80,11 +82,14 @@ augroup tex
 	autocmd FileType tex,md,Rmd inoremap ;ba \bar{}<Esc>i
 	autocmd FileType tex,md,Rmd inoremap ;f \frac{}{<++>}<Esc>ba
 	autocmd FileType tex,md,Rmd inoremap ;lr \left(\right)<Esc>bba
-	autocmd FileType tex,md,Rmd inoremap ;xx X_1,<Space>\ldots<Space>,X_n<Space>\overset{\text{iid}}{\sim}
-	autocmd FileType tex,md,Rmd inoremap ;yy Y_1,<Space>\ldots<Space>,Y_n<Space>\overset{\text{iid}}{\sim}
-	autocmd FileType tex,md,Rmd inoremap ;sx \sum_{i=<++>}^{<++>}X_i<Esc>B<Esc>
+	autocmd FileType tex,md,Rmd inoremap ;xx X_1,<Space>\ldots<Space>,X_n<Space>
+	autocmd FileType tex,md,Rmd inoremap ;si \overset{\text{iid}}{\sim}<Space>
+	autocmd FileType tex,md,Rmd inoremap ;yy Y_1,<Space>\ldots<Space>,Y_n<Space>
+	autocmd FileType tex,md,Rmd inoremap ;su \sum_{i=<++>}^{<++>}<Space>
+	autocmd FileType tex,md,Rmd inoremap ;pr \prod_{i=<++>}^{<++>}<Space>
 	autocmd FileType tex,md,Rmd inoremap ;te \text{}<Esc>i
-	autocmd FileType tex,md,Rmd inoremap ;ri \rightarrow<Space>\infty
+	autocmd FileType tex,md,Rmd inoremap ;ri \rightarrow<Space>\infty<Space>
+	autocmd FileType tex,md,Rmd inoremap ;ho H_0:<Space><++>=0\text{ vs. }H_A:<Space><++>\neq<Space>0
 
 	autocmd FileType tex inoremap ;ta \begin{tabular}{<++>}<CR><CR>\end{tabular}<Esc>ki
 	autocmd FileType tex inoremap ;ca \begin{cases}<CR><CR>\end{cases}<Esc>ki
