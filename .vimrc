@@ -61,19 +61,19 @@ augroup tex
 	autocmd FileType tex,md,Rmd inoremap ;M <CR><CR>$$<CR><CR>$$<Esc>ki
 	autocmd FileType tex,md,Rmd inoremap ~~ \sim<Space>
 
-	autocmd FileType tex,md,Rmd inoremap ;th \theta<Space>
-	autocmd FileType tex,md,Rmd inoremap ;m \mu<Space>
-	autocmd FileType tex,md,Rmd inoremap ;a \alpha<Space>
-	autocmd FileType tex,md,Rmd inoremap ;be \beta<Space>
-	autocmd FileType tex,md,Rmd inoremap ;s \sigma<Space>
-	autocmd FileType tex,md,Rmd inoremap ;ss \sigma^2<Space>
-	autocmd FileType tex,md,Rmd inoremap ;S \Sigma<Space>
-	autocmd FileType tex,md,Rmd inoremap ;la \lambda<Space>
-	autocmd FileType tex,md,Rmd inoremap ;L \Lambd<Space>
-	autocmd FileType tex,md,Rmd inoremap ;g \gamma<Space>
-	autocmd FileType tex,md,Rmd inoremap ;G \Gamma<Space>
-	autocmd FileType tex,md,Rmd inoremap ;ph \phi<Space>
-	autocmd FileType tex,md,Rmd inoremap ;pi \pi<Space>
+	autocmd FileType tex,md,Rmd inoremap ;th \theta
+	autocmd FileType tex,md,Rmd inoremap ;m \mu
+	autocmd FileType tex,md,Rmd inoremap ;aa \alpha
+	autocmd FileType tex,md,Rmd inoremap ;be \beta
+	autocmd FileType tex,md,Rmd inoremap ;s \sigma
+	autocmd FileType tex,md,Rmd inoremap ;ss \sigma^2
+	autocmd FileType tex,md,Rmd inoremap ;S \Sigma
+	autocmd FileType tex,md,Rmd inoremap ;la \lambda
+	autocmd FileType tex,md,Rmd inoremap ;L \Lambda
+	autocmd FileType tex,md,Rmd inoremap ;g \gamma
+	autocmd FileType tex,md,Rmd inoremap ;G \Gamma
+	autocmd FileType tex,md,Rmd inoremap ;ph \phi
+	autocmd FileType tex,md,Rmd inoremap ;pi \pi
 
 	autocmd FileType tex,md,Rmd inoremap ;E E[]<Esc>i
 	autocmd FileType tex,md,Rmd inoremap ;c ^
