@@ -10,6 +10,7 @@ set tabstop=4
 set shiftwidth=4
 set numberwidth=4
 set t_ut=""
+set cursorline
 
 set nocompatible
 set path+=**
@@ -63,7 +64,7 @@ augroup tex
 
 	autocmd FileType tex,md,Rmd inoremap ;th \theta
 	autocmd FileType tex,md,Rmd inoremap ;m \mu
-	autocmd FileType tex,md,Rmd inoremap ;aa \alpha
+	autocmd FileType tex,md,Rmd inoremap ;a \alpha
 	autocmd FileType tex,md,Rmd inoremap ;be \beta
 	autocmd FileType tex,md,Rmd inoremap ;s \sigma
 	autocmd FileType tex,md,Rmd inoremap ;ss \sigma^2
