@@ -25,9 +25,10 @@ nnoremap <leader>GG :Goyo!<CR>
 nnoremap <leader><leader> /<++><CR>df>i
 
 " R + vim_slime specific... might need to change later
-inoremap __<leader> <-<Space>
+inoremap __<leader> <Space><-<Space>
 inoremap <C-S-n> %>%<Space>
-inoremap <leader>` ```
+inoremap ``<leader> <++>```<CR>```<++>
+inoremap `<leader> ```
 
 " Plugins
 
