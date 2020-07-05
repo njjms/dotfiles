@@ -24,6 +24,11 @@ nnoremap <leader>gg :Goyo<CR>
 nnoremap <leader>GG :Goyo!<CR>
 nnoremap <leader><leader> /<++><CR>df>i
 
+" R + vim_slime specific... might need to change later
+inoremap __<leader> <-<Space>
+inoremap <C-S-n> %>%<Space>
+inoremap <leader>` ```
+
 " Plugins
 
 call plug#begin('~/.vim/plugged')
@@ -34,6 +39,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'JuliaEditorSupport/julia-vim'
 	Plug 'lervag/vimtex'
+	Plug 'jpalardy/vim-slime'
 
 call plug#end()
 
@@ -42,6 +48,16 @@ call plug#end()
 let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" slime config
+
+let g:slime_target = "tmux"
+let g:slime_paste_file = "$HOME/.slime_paste"
+
+let g:slime_cell_delimiter = "```"
+nmap <leader>ss <Plug>SlimeLineSend
+nmap <leader>sc <Plug>SlimeSendCell
+nmap <leader>sr <Plug>SlimeRegionSend
 
 " colors
 
@@ -101,7 +117,7 @@ augroup tex
 	autocmd FileType md,Rmd inoremap ;ii **<Esc>i
 augroup END
 
-" statistics
+" statistics shortcuts for use in TeX
 
 let g:distOn=0
 
@@ -116,14 +132,23 @@ endfunction
 function! Dist()
 	echo "Distribution shortcuts turned on"
 	let g:distOn=1
-	inoremap ;no \frac{1}{\sqrt{2\pi\sigma^2}}exp\left( \frac{-(x-\mu)^2}{2\sigma^2} \right)
+	"normal
+	inoremap ;no \frac{1}{\sqrt{2\pi\sigma^2}}exp\left( \frac{-(x-\mu)^2}{2\sigma^2} \right) 
+	"poisson
 	inoremap ;po \frac{\lambda^k e^{-\lambda}}{k!}
+	"binomial
 	inoremap ;bi \choose{n}{k}p^{k}(1-p)^{n-k}
+	"exponential
 	inoremap ;ex \lambda e^{-\lambda x}
+	"exponential w. parameter = 1
 	inoremap ;e1 e^{-x}
+	"shifted exponential
 	inoremap ;sh \frac{1}{\beta}exp\left(\frac{(x-\alpha)}{\beta}\right)
+	"geometric
 	inoremap ;ge (1-p)^{k-1}p
+	"gamma
 	inoremap ;ga \frac{1}{\Gamma(\alpha) \beta^{\alpha}} x^{\alpha - 1} exp\left( -\frac{x}{\beta} \right)
+	"chi-squared
 	inoremap ;ch \frac{1}{2^{k/2}\Gamma(k/2)}x^{k/2 - 1}e^{-x/2}
 endfunction
 
