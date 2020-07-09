@@ -27,7 +27,7 @@ nnoremap <leader>00 :set<Space>nu!<CR>:set<Space>rnu!<CR>
 
 " R + vim_slime specific... might need to change later
 inoremap __<leader> <Space><-<Space>
-inoremap <C-S-n> %>%<Space>
+inoremap <C-S-n> <Space>%>%<Space>
 inoremap ``<leader> <++>```<CR>```<++><C-c>kA<CR>
 inoremap `<leader> ```
 
@@ -57,13 +57,13 @@ let g:slime_target = "tmux"
 let g:slime_paste_file = "$HOME/.slime_paste"
 
 let g:slime_cell_delimiter = "```"
-nmap <leader>ss <Plug>SlimeLineSend
+nmap <leader>sd <Plug>SlimeLineSend
 nmap <leader>sc <Plug>SlimeSendCell
-nmap <leader>sr <Plug>SlimeParagraphSend
-xmap <leader>sr <Plug>SlimeRegionSend
+nmap <leader>ss <Plug>SlimeParagraphSend
+xmap <leader>ss <Plug>SlimeRegionSend
 nmap <leader>sf <Plug>SlimeConfig
 
-"gcolors
+"colors
 
 let g:seoul256_background = 233
 colo seoul256
