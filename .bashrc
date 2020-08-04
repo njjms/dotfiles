@@ -156,8 +156,8 @@ if [ -f '/home/nick/google-cloud-sdk/completion.bash.inc' ]; then . '/home/nick/
 
 alias fun="ssh -X deploy@66.42.76.168"
 alias jules="ssh -X nick@144.202.91.20"
-alias rtex="cp ~/templates/report.tex ."
-alias rmd="cp ~/templates/report.rmd ."
+alias rtex="cp ~/dotfiles/templates/report.tex ."
+alias rmd="cp ~/dotfiles/templates/report.rmd ."
 
 funscp() {
 	scp -r $1 deploy@66.42.76.168:/home/deploy/mysite/assets

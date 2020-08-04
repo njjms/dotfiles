@@ -1,0 +1,30 @@
+---
+title: "<++>Report title"
+subtitle: "<++>Report subtitle"
+author: "Nick Sun"
+output: pdf_document
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE
+)
+
+library(ggplot2)
+library(dplyr)
+```
+
+# Section
+
+Introduction text
+
+## Subsection
+
+Plot introduction text
+
+```{r}
+diamonds %>% 
+	filter(carat <= 2.5) %>% 
+	ggplot(aes(carat)) +
+	geom_freqpoly(bindwidth = .01)
+```
