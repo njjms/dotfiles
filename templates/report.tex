@@ -1,0 +1,57 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[margin=1in]{geometry}
+\graphicspath{{.}}
+
+\lstset{frame=tb,
+	language=python,
+	basicstyle=\small,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	numbers=none,
+	breaklines=true,
+	tabsize=2,
+	breakatwhitespace=true
+}
+
+\title{\vspace{-2.0cm}<++>}
+\date{\today}
+\author{Nick Sun}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	<++>Abstract here if necessary
+\end{abstract}
+
+\section{<++>}
+
+\subsection{<++>}
+
+\paragraph{<++>}
+
+%\begin{center}
+%\includegraphics{}
+%\end{center}
+
+\begin{lstlisting}
+def first_k_primes(n):
+	guess = 2
+	output_list = [guess]
+	while len(output_list) < n:
+		is_prime = True
+		guess += 1
+		for j in range(2, (guess // 2) + 1, 1):
+			if guess % j == 0:
+				is_prime = False		
+		if is_prime:
+			output_list.append(guess)
+	return(output_list)
+\end{lstlisting}
+
+\end{document}
