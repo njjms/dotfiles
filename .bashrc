@@ -118,54 +118,29 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/nick/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/nick/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/nick/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/nick/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 set -o vi
+
+#if [ -z ${TMUX+x} ]; then 
+#	conda deactivate && conda activate base
+#fi
 
 alias nbconvert="jupyter nbconvert --to=python "
 alias jupyter="jupyter notebook --no-browser"
-alias dl="cd /mnt/c/Users/njnic/Downloads"
-alias doc="cd /mnt/c/Users/njnic/Documents"
-alias pic="cd /mnt/c/Users/njnic/Pictures"
-alias engr="ssh sunn@access.engr.oregonstate.edu"
-alias exp="explorer.exe ."
-alias np="notepad.exe"
+alias dl="cd /Users/nsun/Downloads"
+alias doc="cd /Users/nsun/Documents"
+alias pic="cd /Users/nsun/Documents/screenshots"
 alias z="zathura"
 
-export DISPLAY=localhost:0.0
-export GOOGLE_APPLICATION_CREDENTIALS="/home/nick/dstools/cs512-wk1-23a7818bd1cb.json"
-
- #The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/nick/google-cloud-sdk/path.bash.inc' ]; then . '/home/nick/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/nick/google-cloud-sdk/completion.bash.inc' ]; then . '/home/nick/google-cloud-sdk/completion.bash.inc'; fi
+#export DISPLAY=localhost:0.0
 
 alias fun="ssh -X deploy@66.42.76.168"
 alias jules="ssh -X nick@144.202.91.20"
 alias rtex="cp ~/templates/report.tex ."
-alias rmd="cp ~/templates/report.rmd ."
+alias rmd="cp ~/templates/article.rmd ."
 alias ra="ranger"
 
 funscp() {
 	scp -r $1 deploy@66.42.76.168:/home/deploy/mysite/assets
-}
-
-jscp() {
-	scp -r $1 nick@144.202.91.20:/home/nick/cfbtracks
 }
 
 pvc() {
@@ -173,7 +148,10 @@ pvc() {
 }
 
 knit() {
-	R -e "rmarkdown::render('$1')" && echo "Successfully created $(basename $1 .rmd).pdf"
-	zathura $(basename $1 .rmd).pdf
+	R -e "rmarkdown::render('$1')" && echo "Successfully knitted $(basename $1 .rmd).pdf" && zathura $(basename $1 .rmd).pdf
+}
+
+weave() {
+	julia -e "using Weave; weave(\"$1\", doctype=\"md2pdf\")" && echo "Successfully weaved $(basename $1 .jmd).pdf" && zathura $(basename $1 .jmd).pdf
 }
 
