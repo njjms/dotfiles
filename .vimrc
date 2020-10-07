@@ -2,8 +2,9 @@
 "  /\ \ / /  /\ \   /\ "-./  \   /\  == \   /\  ___\ 
 "  \ \ \'/   \ \ \  \ \ \-./\ \  \ \  __<   \ \ \___
 "   \ \__|    \ \_\  \ \_\ \ \_\  \ \_\ \_\  \ \_____\
-"    \/_/      \/_/   \/_/  \/_/   \/_/ /_/   \/_____/
+"    \/_/      \/_/   \/_/  \/_/   \/_/ /_/   \/_____/ by njjms
 
+filetype plugin indent on
 syntax enable
 set relativenumber number
 set tabstop=4
@@ -15,21 +16,30 @@ set cursorline
 set nocompatible
 set path+=**
 set wildmenu
+set shcf=-ic
 
 let mapleader=" "
+
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
 
 " Mappings
 
 nnoremap <leader>gg :Goyo<CR>
 nnoremap <leader>GG :Goyo!<CR>
-nnoremap <leader><leader> /<++><CR>df>i
+nnoremap <leader><leader> /<++><CR>df>a
 nnoremap <leader>00 :set<Space>nu!<CR>:set<Space>rnu!<CR>
 
-" R + vim_slime specific... might need to change later
-inoremap __<leader> <Space><-<Space>
-inoremap <C-S-n> <Space>%>%<Space>
-inoremap ``<leader> <++>```<CR>```<++><C-c>kA<CR>
-inoremap `<leader> ```
+" R <3 vim_slime
+autocmd Filetype R,rmd inoremap _-<leader> <Space><-<Space>
+autocmd Filetype R,rmd inoremap <C-S-n> <Space>%>%<Space>
+inoremap ``<leader> ```<++><CR>```<C-c>kA<CR>
+autocmd Filetype rmd map <C-S-k> :!knit<Space>%:p<CR>
+
+" crocheting is next
+autocmd Filetype jmd map <C-S-k> :!weave<Space>%:p<CR>
 
 " Plugins
 
@@ -75,6 +85,7 @@ hi LineNr ctermfg=NONE ctermbg=NONE
 " TeX
 
 let g:vimtex_view_method = 'zathura'
+let g:tex_flavor = 'latex'
 
 augroup tex
 	autocmd!
